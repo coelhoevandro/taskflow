@@ -1,1 +1,5 @@
 /auth-service/target
+auth-service/.project
+auth-service/.factorypath
+auth-service/.classpath
+/auth-service/.settings
