@@ -1,0 +1,38 @@
+{
+  "info": {
+    "name": "TaskFlow Auth API",
+    "_postman_id": "12345678-1234-1234-1234-123456789012",
+    "description": "Collection for testing Auth login endpoint",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login - Valid",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"username\": \"evandro\", \"password\": \"123456\" }"
+        },
+        "url": {
+          "raw": "http://localhost:8081/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      }
+    }
+  ]
+}
