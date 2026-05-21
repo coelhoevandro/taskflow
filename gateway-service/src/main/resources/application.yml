@@ -1,0 +1,51 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: [ GET, POST, PUT, PATCH, DELETE, OPTIONS ]
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+      routes:
+        # Auth — public, sem JWT
+        - id: auth-service
+          uri: ${AUTH_SERVICE_URL:http://localhost:8081}
+          predicates:
+            - Path=/api/auth/**
+
+        - id: user-service
+          uri: ${USER_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - name: JwtAuthFilter
+
+        - id: task-service
+          uri: ${TASK_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/api/tasks/**
+          filters:
+            - name: JwtAuthFilter
+
+        - id: notification-service
+          uri: ${NOTIFICATION_SERVICE_URL:http://localhost:8084}
+          predicates:
+            - Path=/api/notifications/**
+          filters:
+            - name: JwtAuthFilter
+
+jwt:
+  secret: ${JWT_SECRET:dev-secret-change-this-in-production}
+
+logging:
+  level:
+    com.taskflow: DEBUG
+    org.springframework.cloud.gateway: INFO

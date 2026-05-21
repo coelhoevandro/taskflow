@@ -1,5 +1,36 @@
-/auth-service/target
-auth-service/.project
-auth-service/.factorypath
-auth-service/.classpath
-/auth-service/.settings
+# Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IDE
+.idea/
+*.iml
+*.iws
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+*.env
+
+# Node
+node_modules/
+dist/
+.nuxt/
+.output/
+
+# Docker
+.docker/
+
+# Private
+INTERNAL_INTERVIEW_NOTES.md
