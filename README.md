@@ -289,16 +289,6 @@ The assignment flow has 3 steps. Choreography is easier to understand and debug 
 - [x] Demo data seeding
 - [x] Structured logging with correlation ID propagation across services and Kafka events
 
-### Phase 2 (planned)
-- [ ] React / Next.js frontend version
-- [ ] Improved analytics dashboard
-- [ ] Notification preferences (email, in-app)
-- [ ] CI/CD pipeline (GitHub Actions)
-- [ ] Distributed tracing visualization (OpenTelemetry + Jaeger)
-- [ ] Kubernetes deployment manifests
-- [ ] Rate limiting in gateway
-- [ ] Audit log service
-
 ---
 
 ## License
