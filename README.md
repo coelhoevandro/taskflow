@@ -4,7 +4,7 @@ A collaborative task management platform built with Java microservices.
 
 Designed to demonstrate practical backend architecture using real-world patterns: event-driven choreography saga, lightweight CQRS, distributed observability, and polyglot persistence — all running locally with a single `docker-compose up`.
 
-**Author:** Evandro Coelho · [coelho.g.evandro@gmail.com](mailto:coelho.g.evandro@gmail.com) · [linkedin.com/in/coelho-evandro](https://www.linkedin.com/in/coelho-evandro/)
+**Author:** Evandro Coelho · [linkedin.com/in/coelho-evandro](https://www.linkedin.com/in/coelho-evandro/)
 
 ---
 
