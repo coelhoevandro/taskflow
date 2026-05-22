@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 628" width="960" height="628"
+     font-family="'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif">
+
+  <!-- ── Background ── -->
+  <rect width="960" height="628" fill="#F8FAFC"/>
+
+  <!-- ── Defs ── -->
+  <defs>
+    <marker id="a-gray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#64748B"/>
+    </marker>
+    <marker id="a-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#7C3AED"/>
+    </marker>
+    <marker id="a-pink" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#BE185D"/>
+    </marker>
+    <marker id="a-red" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#DC2626"/>
+    </marker>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- ══════════════════════════════════════════════
+       DOCKER COMPOSE BOUNDARY
+  ══════════════════════════════════════════════ -->
+  <rect x="10" y="42" width="940" height="498" rx="12"
+        fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <rect x="20" y="34" width="172" height="18" rx="4" fill="#F8FAFC"/>
+  <text x="28" y="47" font-size="10" font-weight="600" fill="#94A3B8" letter-spacing="0.4">docker-compose network</text>
+
+  <!-- ══════════════════════════════════════════════
+       TITLE
+  ══════════════════════════════════════════════ -->
+  <text x="480" y="22" text-anchor="middle" font-size="15" font-weight="700"
+        fill="#0F172A" letter-spacing="0.3">TaskFlow — System Architecture</text>
+
+  <!-- ══════════════════════════════════════════════
+       FRONTEND
+  ══════════════════════════════════════════════ -->
+  <rect x="330" y="55" width="300" height="72" rx="10" fill="white"
+        stroke="#16A34A" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="330" y="55" width="300" height="26" rx="10" fill="#16A34A"/>
+  <rect x="330" y="69"  width="300" height="12" fill="#16A34A"/>
+  <text x="480" y="73" text-anchor="middle" font-size="9.5" font-weight="700"
+        fill="white" letter-spacing="1">FRONTEND</text>
+  <text x="480" y="96" text-anchor="middle" font-size="12" font-weight="600" fill="#14532D">Vue 3 · Pinia · Vuetify 3</text>
+  <text x="480" y="115" text-anchor="middle" font-size="10" fill="#15803D">Vite dev server · localhost:5173</text>
+
+  <!-- Frontend → Gateway arrow -->
+  <line x1="480" y1="127" x2="480" y2="172" stroke="#64748B" stroke-width="1.5" marker-end="url(#a-gray)"/>
+  <text x="491" y="152" font-size="9" fill="#94A3B8">HTTPS / REST</text>
+
+  <!-- ══════════════════════════════════════════════
+       API GATEWAY
+  ══════════════════════════════════════════════ -->
+  <rect x="330" y="175" width="300" height="72" rx="10" fill="white"
+        stroke="#D97706" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="330" y="175" width="300" height="26" rx="10" fill="#D97706"/>
+  <rect x="330" y="189" width="300" height="12" fill="#D97706"/>
+  <text x="480" y="194" text-anchor="middle" font-size="9.5" font-weight="700"
+        fill="white" letter-spacing="1">API GATEWAY · :8080</text>
+  <text x="480" y="217" text-anchor="middle" font-size="12" font-weight="600" fill="#78350F">Spring Cloud Gateway</text>
+  <text x="480" y="235" text-anchor="middle" font-size="10" fill="#B45309">JWT validation · route forwarding · correlation ID</text>
+
+  <!-- Gateway → bus → services -->
+  <line x1="480" y1="247" x2="480" y2="268" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="102"  y1="268" x2="830"  y2="268" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="102"  y1="268" x2="102"  y2="298" stroke="#64748B" stroke-width="1.5" marker-end="url(#a-gray)"/>
+  <line x1="292"  y1="268" x2="292"  y2="298" stroke="#64748B" stroke-width="1.5" marker-end="url(#a-gray)"/>
+  <line x1="546"  y1="268" x2="546"  y2="298" stroke="#64748B" stroke-width="1.5" marker-end="url(#a-gray)"/>
+  <line x1="830"  y1="268" x2="830"  y2="298" stroke="#64748B" stroke-width="1.5" marker-end="url(#a-gray)"/>
+
+  <!-- SYNC / ASYNC boundary -->
+  <line x1="428" y1="280" x2="428" y2="412" stroke="#E2E8F0" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="414" y="278" font-size="8" fill="#94A3B8" text-anchor="end" font-weight="600">SYNC</text>
+  <text x="442" y="278" font-size="8" fill="#DC2626" font-weight="600">ASYNC</text>
+
+  <!-- ══════════════════════════════════════════════
+       AUTH SERVICE
+  ══════════════════════════════════════════════ -->
+  <rect x="15" y="300" width="175" height="80" rx="8" fill="white"
+        stroke="#3B82F6" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="15" y="300" width="175" height="24" rx="8" fill="#3B82F6"/>
+  <rect x="15" y="312" width="175" height="12"        fill="#3B82F6"/>
+  <text x="102" y="318" text-anchor="middle" font-size="9" font-weight="700"
+        fill="white" letter-spacing="0.4">auth-service · :8081</text>
+  <text x="102" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Authentication</text>
+  <text x="102" y="356" text-anchor="middle" font-size="9"  fill="#3B82F6">JWT · Refresh tokens</text>
+  <text x="102" y="371" text-anchor="middle" font-size="8.5" fill="#93C5FD">Spring Security · Flyway</text>
+
+  <!-- ══════════════════════════════════════════════
+       USER SERVICE
+  ══════════════════════════════════════════════ -->
+  <rect x="205" y="300" width="175" height="80" rx="8" fill="white"
+        stroke="#3B82F6" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="205" y="300" width="175" height="24" rx="8" fill="#3B82F6"/>
+  <rect x="205" y="312" width="175" height="12"        fill="#3B82F6"/>
+  <text x="292" y="318" text-anchor="middle" font-size="9" font-weight="700"
+        fill="white" letter-spacing="0.4">user-service · :8082</text>
+  <text x="292" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">User Profiles</text>
+  <text x="292" y="356" text-anchor="middle" font-size="9"  fill="#3B82F6">OpenFeign client</text>
+  <text x="292" y="371" text-anchor="middle" font-size="8.5" fill="#93C5FD">Spring Data JPA · Flyway</text>
+
+  <!-- ══════════════════════════════════════════════
+       TASK SERVICE
+  ══════════════════════════════════════════════ -->
+  <rect x="455" y="300" width="183" height="80" rx="8" fill="white"
+        stroke="#3B82F6" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="455" y="300" width="183" height="24" rx="8" fill="#3B82F6"/>
+  <rect x="455" y="312" width="183" height="12"        fill="#3B82F6"/>
+  <text x="546" y="318" text-anchor="middle" font-size="9" font-weight="700"
+        fill="white" letter-spacing="0.4">task-service · :8083</text>
+  <text x="546" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Task Management</text>
+  <text x="546" y="356" text-anchor="middle" font-size="9"  fill="#3B82F6">CQRS · Saga producer</text>
+  <text x="546" y="371" text-anchor="middle" font-size="8.5" fill="#93C5FD">Spring Data JPA · Flyway</text>
+
+  <!-- ══════════════════════════════════════════════
+       KAFKA MINI-BOX  (gap between task right=638 and notif left=725)
+  ══════════════════════════════════════════════ -->
+  <!-- labels above / below -->
+  <text x="682" y="308" text-anchor="middle" font-size="8" fill="#DC2626" font-weight="600">task.assigned →</text>
+  <text x="682" y="388" text-anchor="middle" font-size="8" fill="#DC2626" font-weight="600">← notification.result</text>
+
+  <!-- box -->
+  <rect x="643" y="313" width="78" height="48" rx="6" fill="#FEF2F2"
+        stroke="#EF4444" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="682" y="330" text-anchor="middle" font-size="8.5" font-weight="700"
+        fill="#DC2626" letter-spacing="0.8">KAFKA</text>
+  <text x="682" y="344" text-anchor="middle" font-size="7.5" fill="#EF4444">:9092</text>
+  <text x="682" y="357" text-anchor="middle" font-size="7"   fill="#F87171">Choreography Saga</text>
+
+  <!-- Task → Kafka (publish) -->
+  <line x1="638" y1="332" x2="643" y2="332" stroke="#DC2626" stroke-width="1.5" marker-end="url(#a-red)"/>
+  <!-- Kafka → Notification (consume) -->
+  <line x1="721" y1="328" x2="725" y2="328" stroke="#DC2626" stroke-width="1.5" marker-end="url(#a-red)"/>
+  <!-- Notification → Kafka (result publish) -->
+  <line x1="725" y1="344" x2="721" y2="344" stroke="#DC2626" stroke-width="1.5"
+        stroke-dasharray="4,2" marker-end="url(#a-red)"/>
+
+  <!-- ══════════════════════════════════════════════
+       NOTIFICATION SERVICE
+  ══════════════════════════════════════════════ -->
+  <rect x="725" y="300" width="210" height="80" rx="8" fill="white"
+        stroke="#3B82F6" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="725" y="300" width="210" height="24" rx="8" fill="#3B82F6"/>
+  <rect x="725" y="312" width="210" height="12"        fill="#3B82F6"/>
+  <text x="830" y="318" text-anchor="middle" font-size="9" font-weight="700"
+        fill="white" letter-spacing="0.4">notification-service · :8084</text>
+  <text x="830" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Notifications</text>
+  <text x="830" y="356" text-anchor="middle" font-size="9"  fill="#3B82F6">Kafka consumer · Saga reply</text>
+  <text x="830" y="371" text-anchor="middle" font-size="8.5" fill="#93C5FD">Spring Data MongoDB</text>
+
+  <!-- ══════════════════════════════════════════════
+       DB ARROWS  (service → database)
+  ══════════════════════════════════════════════ -->
+  <line x1="102" y1="380" x2="102" y2="448" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#a-purple)"/>
+  <line x1="292" y1="380" x2="292" y2="448" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#a-purple)"/>
+  <line x1="546" y1="380" x2="546" y2="448" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#a-purple)"/>
+  <line x1="830" y1="380" x2="830" y2="448" stroke="#BE185D" stroke-width="1.5" marker-end="url(#a-pink)"/>
+
+  <!-- ══════════════════════════════════════════════
+       AUTH PostgreSQL
+  ══════════════════════════════════════════════ -->
+  <rect x="15" y="450" width="175" height="66" rx="8" fill="white"
+        stroke="#7C3AED" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="15" y="450" width="175" height="22" rx="8" fill="#7C3AED"/>
+  <rect x="15" y="460" width="175" height="12"        fill="#7C3AED"/>
+  <text x="102" y="467" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">PostgreSQL · auth_db</text>
+  <text x="102" y="486" text-anchor="middle" font-size="10"  font-weight="600" fill="#4C1D95">users · refresh_tokens</text>
+  <text x="102" y="502" text-anchor="middle" font-size="8.5" fill="#7C3AED">Flyway managed</text>
+
+  <!-- ══════════════════════════════════════════════
+       USER PostgreSQL
+  ══════════════════════════════════════════════ -->
+  <rect x="205" y="450" width="175" height="66" rx="8" fill="white"
+        stroke="#7C3AED" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="205" y="450" width="175" height="22" rx="8" fill="#7C3AED"/>
+  <rect x="205" y="460" width="175" height="12"        fill="#7C3AED"/>
+  <text x="292" y="467" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">PostgreSQL · user_db</text>
+  <text x="292" y="486" text-anchor="middle" font-size="10"  font-weight="600" fill="#4C1D95">users · profiles</text>
+  <text x="292" y="502" text-anchor="middle" font-size="8.5" fill="#7C3AED">Flyway managed</text>
+
+  <!-- ══════════════════════════════════════════════
+       TASK PostgreSQL
+  ══════════════════════════════════════════════ -->
+  <rect x="455" y="450" width="183" height="66" rx="8" fill="white"
+        stroke="#7C3AED" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="455" y="450" width="183" height="22" rx="8" fill="#7C3AED"/>
+  <rect x="455" y="460" width="183" height="12"        fill="#7C3AED"/>
+  <text x="546" y="467" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">PostgreSQL · task_db</text>
+  <text x="546" y="486" text-anchor="middle" font-size="10"  font-weight="600" fill="#4C1D95">tasks · comments</text>
+  <text x="546" y="502" text-anchor="middle" font-size="8.5" fill="#7C3AED">Flyway managed</text>
+
+  <!-- ══════════════════════════════════════════════
+       MONGODB
+  ══════════════════════════════════════════════ -->
+  <rect x="725" y="450" width="210" height="66" rx="8" fill="white"
+        stroke="#BE185D" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="725" y="450" width="210" height="22" rx="8" fill="#BE185D"/>
+  <rect x="725" y="460" width="210" height="12"        fill="#BE185D"/>
+  <text x="830" y="467" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">MongoDB · notification_db</text>
+  <text x="830" y="486" text-anchor="middle" font-size="10"  font-weight="600" fill="#831843">notifications</text>
+  <text x="830" y="502" text-anchor="middle" font-size="8.5" fill="#BE185D">append-only · schema-flexible</text>
+
+  <!-- ══════════════════════════════════════════════
+       OBSERVABILITY BANNER
+  ══════════════════════════════════════════════ -->
+  <rect x="15" y="530" width="930" height="30" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="30" y="549" font-size="9.5" fill="#1D4ED8">
+    <tspan font-weight="700">Observability: </tspan>
+    <tspan>X-Correlation-Id propagated end-to-end via MDC (servlet services) and Kafka ProducerRecord headers — trace any request across all services with a single grep</tspan>
+  </text>
+
+  <!-- ══════════════════════════════════════════════
+       LEGEND + AUTHOR
+  ══════════════════════════════════════════════ -->
+  <rect x="15" y="570" width="930" height="48" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Legend items -->
+  <line x1="30"  y1="588" x2="56"  y2="588" stroke="#64748B" stroke-width="1.5" marker-end="url(#a-gray)"/>
+  <text x="63"  y="592" font-size="9" fill="#475569">REST (sync)</text>
+
+  <line x1="160" y1="588" x2="186" y2="588" stroke="#DC2626" stroke-width="1.5" marker-end="url(#a-red)"/>
+  <text x="193" y="592" font-size="9" fill="#475569">Kafka event (async)</text>
+
+  <line x1="320" y1="588" x2="320" y2="588" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="316" y1="588" x2="346" y2="588" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#a-red)"/>
+  <text x="353" y="592" font-size="9" fill="#475569">Saga reply (async)</text>
+
+  <rect x="478" y="582" width="12" height="12" rx="2" fill="#7C3AED"/>
+  <text x="496" y="592" font-size="9" fill="#475569">PostgreSQL</text>
+
+  <rect x="568" y="582" width="12" height="12" rx="2" fill="#BE185D"/>
+  <text x="586" y="592" font-size="9" fill="#475569">MongoDB</text>
+
+  <!-- Second legend line -->
+  <text x="30"  y="610" font-size="9" fill="#94A3B8">
+    Stack: Java 17 · Spring Boot 3.2 · Spring Cloud Gateway · Apache Kafka · PostgreSQL 16 · MongoDB 7 · Vue.js 3 · Docker Compose
+  </text>
+  <text x="944" y="610" font-size="9" fill="#94A3B8" text-anchor="end">Evandro Coelho · linkedin.com/in/coelho-evandro</text>
+
+</svg>

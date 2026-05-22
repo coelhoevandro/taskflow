@@ -1,15 +1,9 @@
 package com.taskflow.auth.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
-/**
- * User's login data
- */
-@Data 
-@AllArgsConstructor
-public class LoginRequest {
-    private String username;
-    private String password;
-    
-}
+public record LoginRequest(
+        @NotBlank @Email String email,
+        @NotBlank String password
+) {}

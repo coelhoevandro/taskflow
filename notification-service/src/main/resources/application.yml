@@ -1,0 +1,32 @@
+server:
+  port: ${SERVER_PORT:8084}
+
+spring:
+  application:
+    name: notification-service
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://taskflow:taskflow123@localhost:27017/notification_db?authSource=admin}
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: taskflow-notifications
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        # Ignora o __TypeId__ header enviado pelo producer (que aponta para classes do task-service).
+        # O tipo alvo é resolvido pelo tipo genérico declarado no @KafkaListener (ConsumerRecord).
+        spring.json.trusted.packages: "com.taskflow.*"
+        spring.json.use.type.headers: false
+        spring.json.value.default.type: com.taskflow.notification.consumer.TaskEventConsumer$TaskAssignedPayload
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+user-service:
+  url: ${USER_SERVICE_URL:http://localhost:8082}
+
+logging:
+  level:
+    com.taskflow: DEBUG

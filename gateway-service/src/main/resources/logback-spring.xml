@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name" defaultValue="unknown"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Gateway não usa MDC (WebFlux é reativo, MDC não propaga automaticamente).
+                 O correlationId aparece inline nas mensagens de log do CorrelationIdWebFilter. -->
+            <pattern>%d{HH:mm:ss.SSS} %-5level [${APP_NAME}] %logger{30} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <logger name="com.taskflow" level="DEBUG"/>
+    <logger name="org.springframework.cloud.gateway" level="INFO"/>
+    <logger name="reactor.netty" level="WARN"/>
+
+</configuration>
