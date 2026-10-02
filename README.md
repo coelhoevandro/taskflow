@@ -28,7 +28,7 @@ Designed to demonstrate practical backend architecture using real-world patterns
 
 ![System Design](docs/architecture.svg)
 
-Six independently deployable services, each owning its own database. No shared tables, no direct cross-service DB connections. Synchronous communication via REST; asynchronous via Kafka.
+Five backend services — four domain services behind an API gateway — plus a Vue frontend, each deployed independently. Every service that stores data owns its own database: no shared tables, no direct cross-service DB connections. Synchronous communication via REST; asynchronous via Kafka.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -182,7 +182,7 @@ docker-compose logs | grep "cid=<your-uuid>"
 **Prerequisites:** Docker and Docker Compose.
 
 ```bash
-git clone https://github.com/evandrocoelho/taskflow.git
+git clone https://github.com/coelhoevandro/taskflow.git
 cd taskflow
 docker-compose up --build
 ```
@@ -214,6 +214,8 @@ Once running:
 ## API
 
 Import `postman/TaskFlow.postman_collection.json` into Postman.
+
+Run **Auth → Login** first; every other request reuses the saved token.
 
 The collection includes:
 - Auto-saved `accessToken` and `refreshToken` on every login
@@ -279,7 +281,7 @@ Three-step flow with one branching point. An orchestrator adds infrastructure (a
 ## Roadmap
 
 ### Phase 1 (complete)
-- [x] Six-service microservices backend
+- [x] Five-service microservices backend (four domain services + API gateway)
 - [x] Vue 3 frontend with real-time status updates
 - [x] JWT authentication with refresh token rotation
 - [x] Apache Kafka event-driven communication
